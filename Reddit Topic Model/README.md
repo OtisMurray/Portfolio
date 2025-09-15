@@ -37,3 +37,5 @@ Following this directory structure
     |
     |--.getignore                         <- List of files not to sync with github
 ```
+
+Link for data retrieving data to test model: https://www.kaggle.com/competitions/reddit-topic-model-fl-24/data

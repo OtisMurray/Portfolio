@@ -22,4 +22,4 @@ Directory Management: structured raw, interim, and processed datasets, allowing 
 
 Analysis of results: Accurately determining results and explaining what they mean in understandable terms
 
-Programming tools: R (dplyr, caret, ggplot2, xgboost, ClusterR), Python (embeddings, libraries like Pandas and Matplotlib), and SQL
+Programming tools: R (dplyr, caret, ggplot2, xgboost, ClusterR), Python (embeddings, libraries like Pandas and Matplotlib), and SQL (RDBMS)

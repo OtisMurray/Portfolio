@@ -1,7 +1,8 @@
-# Data Science Project Template
+# Project Description
 
-Template adapted from [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/)
+This project uses R to classify Reddit posts into 11 categories based on text embeddings. It utilizes feature preprocessing, dimensionality reduction, visualization, and XGBoost for classification. It also logs all of the different trials of hyperparameter tuning to keep track of which values for the variables: eta, max_depth, gamma, subsample, colsample_bytree, min_child_weight, lambda, and best_nrounds resulted in the most accurate model predictions.
 
+The Topic Model was then judged on a kaggle competition for how well it was able to predict of an unknown testing dataset.
 
 
 ## Convention

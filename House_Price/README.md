@@ -1,8 +1,6 @@
-# Data Science Project Template
+# Project Description
 
-Template adapted from [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/)
-
-
+This project uses R to process through training and testing data on house price sales and calculates group level average sale prices. Using these calculations it generates predicted sale prices for a set of unknown testing data based on a given set of house quality and condition labels.
 
 ## Convention
 

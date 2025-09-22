@@ -8,7 +8,7 @@ house_dt <- fread("./project/volume/data/raw/Stat_380_housedata.csv")
 qc_data <- fread("./project/volume/data/raw/Stat_380_QC_table.csv")
 ex_sub <- fread("./project/volume/data/raw/example_sub.csv")
 
-#merge the Qual and Cond variables into the house_dt
+# Merge the Qual and Cond variables into the house_dt
 house_dt_merged <- house_dt %>%
   left_join(qc_data %>%
               select(qc_code, Qual, Cond), by = c("qc_code"))

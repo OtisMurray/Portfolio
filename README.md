@@ -1,6 +1,10 @@
 # Portfolio
 Here is a collection of my major projects developed through my college career.
 
+## Link to collaborative PSU Hackathon Fall 2024 Project that won the best use of MongoDB Atlas
+https://github.com/rmedcraft/Daily-Journal
+
+Description: Flags for warning signs of various mental illnesses using a custom AI model based on journal entries entered by the user
 
 ## Skills learned
 

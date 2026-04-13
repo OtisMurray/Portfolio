@@ -7,10 +7,12 @@ This repository is a collection of data science, machine learning, analytics, an
 ### [FireSight](./FireSight)
 An end-to-end wildfire risk forecasting project that combines environmental data engineering, machine learning, and application development.
 
+- Built for the GDG @ Penn State Solution Challenge Hackathon: Innovate for Impact on April 11-12, 2026
 - Built forecasting pipelines in Python using weather data, NASA FIRMS fire observations, and gridded spatial features
 - Trained and compared tree-based models including Extra Trees and XGBoost
 - Exposed predictions through a FastAPI backend
 - Built an interactive React and Leaflet frontend for mapping wildfire risk and active fire detections
+- Designed as an impact-oriented climate and resilience project aligned with the Google Solution Challenge format
 
 ### [PM2.5 Forecasting Model](./PM2.5%20Forecasting%20Model)
 A large-scale environmental data processing and forecasting project focused on PM2.5 air pollution over North America.

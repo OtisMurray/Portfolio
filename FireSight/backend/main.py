@@ -25,14 +25,14 @@ def get_risk_grid():
 @app.get("/api/live-fires")
 async def get_live_fires():
     if not NASA_API_KEY:
-        raise HTTPException(503, "NASA_API_KEY not configured")
+        return []
 
     url = f"https://firms.modaps.eosdis.nasa.gov/api/area/csv/{NASA_API_KEY}/VIIRS_SNPP_NRT/-124,32,-114,42/1"
     async with httpx.AsyncClient(timeout=30.0) as client:
         resp = await client.get(url)
 
     if resp.status_code != 200:
-        raise HTTPException(502, "Failed to fetch FIRMS data")
+        return []
 
     fires = []
     for row in csv.DictReader(io.StringIO(resp.text)):
@@ -45,6 +45,15 @@ async def get_live_fires():
         except (KeyError, ValueError):
             continue
     return fires
+
+
+@app.get("/")
+def root():
+    return {
+        "status": "ok",
+        "message": "FireSight API is running",
+        "endpoints": ["/api/risk-grid", "/api/live-fires", "/health"],
+    }
 
 
 @app.get("/health")

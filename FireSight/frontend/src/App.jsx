@@ -4,6 +4,7 @@ import FireMap from "./components/FireMap";
 import Legend from "./components/Legend";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const STATIC_RISK_GRID_URL = "/predictions.json";
 
 export default function App() {
   const [riskGrid, setRiskGrid] = useState([]);
@@ -14,19 +15,27 @@ export default function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const [gridRes, firesRes] = await Promise.allSettled([
-          axios.get(`${API_URL}/api/risk-grid`),
-          axios.get(`${API_URL}/api/live-fires`),
-        ]);
-
-        if (gridRes.status === "fulfilled") setRiskGrid(gridRes.value.data);
-        if (firesRes.status === "fulfilled") setLiveFires(firesRes.value.data);
-
-        if (gridRes.status === "rejected" && firesRes.status === "rejected") {
-          setError("Failed to connect to API. Is the backend running?");
+        let grid = [];
+        try {
+          const gridRes = await axios.get(`${API_URL}/api/risk-grid`);
+          grid = gridRes.data;
+        } catch {
+          const fallbackGridRes = await axios.get(STATIC_RISK_GRID_URL);
+          grid = fallbackGridRes.data;
         }
+
+        let fires = [];
+        try {
+          const firesRes = await axios.get(`${API_URL}/api/live-fires`);
+          fires = firesRes.data;
+        } catch {
+          fires = [];
+        }
+
+        setRiskGrid(Array.isArray(grid) ? grid : []);
+        setLiveFires(Array.isArray(fires) ? fires : []);
       } catch (err) {
-        setError("Unexpected error loading data");
+        setError("Forecast data is temporarily unavailable.");
       } finally {
         setLoading(false);
       }
